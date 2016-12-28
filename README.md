@@ -4,28 +4,6 @@ This is a starter for the [Angular Wbe Bluetooth module](https://github.com/mane
 
 ![image](https://cloud.githubusercontent.com/assets/1699357/21523148/b843ceb0-cd0b-11e6-974a-50294a797b27.png)
 
-
-## 1) import the `WebBluetoothModule` module
-
-```typescript
-import { NgModule } from '@angular/core';
-import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
-
-@NgModule({
-  imports: [
-    //...,
-    WebBluetoothModule.forRoot()
-  ],
-  //...
-})
-export class AppModule { }
-
-```
-
-## 2) use it in your service
-
-See the [battery-level.service.ts](https://github.com/manekinekko/angular-web-bluetooth-starter/blob/master/src/app/battery-level/battery-level.component.ts) file for a real use case.
-
 # Have a PR?
 
 All contributions are welcome ;)
