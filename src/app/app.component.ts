@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'ble-root',
+  templateUrl: `
+   <ble-battery-level></ble-battery-level>
+  `
 })
-export class AppComponent {
-  title = 'app works!';
-}
+export class AppComponent {}

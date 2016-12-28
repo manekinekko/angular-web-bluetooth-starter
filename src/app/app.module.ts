@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
 
 import { AppComponent } from './app.component';
+import { BatteryLevelComponent } from './battery-level/battery-level.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BatteryLevelComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    WebBluetoothModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
