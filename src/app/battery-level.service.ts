@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {
-  BluetoothCore,
-  BluetoothRemoteGATTServer,
-  BluetoothRemoteGATTService,
-  BluetoothRemoteGATTCharacteristic,
-  DataView
-} from '@manekinekko/angular-web-bluetooth';
+import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
 
 
 @Injectable()
@@ -37,26 +31,29 @@ export class BatteryLevelService {
    * This logic is specific to this service, this is why we can't abstract it elsewhere.
    * The developer is free to provide any service, and characteristics she wants.
    *
-   * @return {Observable<number>} Emites the value of the requested service read from the device
+   * @return {Observable<Number>} Emites the value of the requested service read from the device
    */
-   getBatteryLevel(): Observable<number> {
+   getBatteryLevel() {
     console.log('Getting Battery Service...');
 
     try {
         return this.ble
-        .discover$({
-          optionalServices: [BatteryLevelService.GATT_PRIMARY_SERVICE]
-        })
-        .mergeMap( (gatt: BluetoothRemoteGATTServer)  => {
-          return this.ble.getPrimaryService$(gatt, BatteryLevelService.GATT_PRIMARY_SERVICE);
-        })
-        .mergeMap( (primaryService: BluetoothRemoteGATTService) => {
-          return this.ble.getCharacteristic$(primaryService, BatteryLevelService.GATT_CHARACTERISTIC_BATTERY_LEVEL); 
-        })
-        .mergeMap( (characteristic: BluetoothRemoteGATTCharacteristic) =>  {
-          return this.ble.readValue$(characteristic);
-        })
-        .map( (value: DataView) => value.getUint8(0) );
+          .discover$({
+            filters: [{
+              services: [BatteryLevelService.GATT_PRIMARY_SERVICE]
+            }],
+            optionalServices: [BatteryLevelService.GATT_PRIMARY_SERVICE]
+          })
+          .mergeMap( (gatt: BluetoothRemoteGATTServer)  => {
+            return this.ble.getPrimaryService$(gatt, BatteryLevelService.GATT_PRIMARY_SERVICE);
+          })
+          .mergeMap( (primaryService: BluetoothRemoteGATTService) => {
+            return this.ble.getCharacteristic$(primaryService, BatteryLevelService.GATT_CHARACTERISTIC_BATTERY_LEVEL); 
+          })
+          .mergeMap( (characteristic: BluetoothRemoteGATTCharacteristic) =>  {
+            return this.ble.readValue$(characteristic);
+          })
+          .map( (value: DataView) => value.getUint8(0) );
     }
     catch(e) {
       console.error('Oops! can not read value from %s');

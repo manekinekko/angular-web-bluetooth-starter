@@ -10,9 +10,14 @@ import { BatteryLevelComponent } from './battery-level/battery-level.component';
     AppComponent,
     BatteryLevelComponent
   ],
+  entryComponents: [
+    BatteryLevelComponent
+  ],
   imports: [
     BrowserModule,
-    WebBluetoothModule.forRoot()
+    WebBluetoothModule.forRoot({
+      enableTracing: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

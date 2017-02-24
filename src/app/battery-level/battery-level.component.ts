@@ -4,7 +4,7 @@ import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
 
 @Component({
   selector: 'ble-battery-level',
-  templateUrl: `
+  template: `
     <a href="#" (click)="getBatteryLevel()">Get Battery Level ({{batteryLevel || 'N/A'}}%)</a>
   `,
   styles: [`
@@ -13,7 +13,7 @@ import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
       color: rgba(255,255,255,1);
       text-decoration: none;
       background-color: #CD2834;
-      font-family: 'monospace';
+      font-family: monospace;
       font-weight: 700;
       font-size: 3em;
       display: block;
@@ -32,7 +32,7 @@ import { BluetoothCore } from '@manekinekko/angular-web-bluetooth';
       top: 6px;
     }
   `],
-  providers: [ BatteryLevelService, BluetoothCore ]
+  providers: [ BatteryLevelService ]
 })
 export class BatteryLevelComponent implements OnInit {
 
@@ -58,7 +58,7 @@ export class BatteryLevelComponent implements OnInit {
         (device) => {
 
           if(device) {
-            this.device = device
+            this.device = device;
           }
           else {
             // device not connected or disconnected

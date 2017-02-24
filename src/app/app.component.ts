@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ble-root',
-  templateUrl: `
+  template: `
    <ble-battery-level></ble-battery-level>
   `
 })
