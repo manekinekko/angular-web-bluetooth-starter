@@ -1,28 +1,19 @@
 # Angular Web Bluetooth Starter
+
+This is a starter for the [Angular Web Bluetooth module](https://github.com/manekinekko/angular-web-bluetooth).
+
 ![image](https://cloud.githubusercontent.com/assets/1699357/21523148/b843ceb0-cd0b-11e6-974a-50294a797b27.png)
 
+# Have a PR?
 
-## Description
+All contributions are welcome ;)
 
-This starter uses the [Angular Bluetooth module](https://github.com/manekinekko/angular-web-bluetooth).
+# License
 
-## 1) import the `WebBluetoothModule` module
+The MIT License (MIT) Copyright (c) 2017 - Wassim CHEGHAM
 
-```typescript
-import { NgModule } from '@angular/core';
-import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-@NgModule({
-  imports: [
-    //...,
-    WebBluetoothModule.forRoot()
-  ],
-  //...
-})
-export class AppModule { }
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-```
-
-## 2) use it in your service
-
-See the battery-level.service file.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
