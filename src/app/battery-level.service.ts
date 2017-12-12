@@ -41,19 +41,19 @@ export class BatteryLevelService {
           .discover$({
             acceptAllDevices: true,
             optionalServices: [BatteryLevelService.GATT_PRIMARY_SERVICE]
-          })
+          } as RequestDeviceOptions)
           .mergeMap( (gatt: BluetoothRemoteGATTServer)  => {
             return this.ble.getPrimaryService$(gatt, BatteryLevelService.GATT_PRIMARY_SERVICE);
           })
           .mergeMap( (primaryService: BluetoothRemoteGATTService) => {
-            return this.ble.getCharacteristic$(primaryService, BatteryLevelService.GATT_CHARACTERISTIC_BATTERY_LEVEL); 
+            return this.ble.getCharacteristic$(primaryService, BatteryLevelService.GATT_CHARACTERISTIC_BATTERY_LEVEL);
           })
           .mergeMap( (characteristic: BluetoothRemoteGATTCharacteristic) =>  {
             return this.ble.readValue$(characteristic);
           })
           .map( (value: DataView) => value.getUint8(0) );
     }
-    catch(e) {
+    catch (e) {
       console.error('Oops! can not read value from %s');
     }
 
