@@ -19,7 +19,6 @@ import { BatteryLevelComponent } from './battery-level/battery-level.component';
       enableTracing: true
     })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
