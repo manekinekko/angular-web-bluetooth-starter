@@ -1,6 +1,6 @@
 {
     "name": "@manekinekko/angular-web-bluetooth-starter",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
@@ -29,7 +29,7 @@
         "zone.js": "^0.8.4",
         "ts-helpers": "^1.1.2",
         "@manekinekko/angular-web-bluetooth": "^2.0.0",
-        "@types/web-bluetooth": "^0.0.3"
+        "@types/web-bluetooth": "^0.0.4"
     },
     "devDependencies": {
         "@angular/cli": "~1.6.1",

@@ -36,7 +36,7 @@ export class BatteryLevelService {
         .discover$({
           acceptAllDevices: true,
           optionalServices: [BatteryLevelService.GATT_PRIMARY_SERVICE]
-        } as RequestDeviceOptions)
+        })
         .mergeMap((gatt: BluetoothRemoteGATTServer) => {
           return this.ble.getPrimaryService$(
             gatt,
